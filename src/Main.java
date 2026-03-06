@@ -97,7 +97,7 @@ public class Main {
         }
     }
 
-    static void help() {
+    private static void help() {
 
         System.out.println("Commands:");
         System.out.println("OPEN <account>");
@@ -119,7 +119,7 @@ public class Main {
         System.out.println("EXIT");
     }
 
-    static void open(String name) {
+    private static void open(String name) {
 
         if (accounts.containsKey(name)) {
             System.out.println("Account exists");
@@ -128,7 +128,7 @@ public class Main {
         accounts.put(name, new Account(name));
     }
 
-    static void deposit(String name, int amount) {
+    private static void deposit(String name, int amount) {
 
         Account acc = accounts.get(name);
         if (acc == null) {
@@ -141,7 +141,7 @@ public class Main {
         acc.deposit(amount);
     }
 
-    static void withdraw(String name, int amount) {
+    private static void withdraw(String name, int amount) {
 
         Account acc = accounts.get(name);
         if (acc == null) {
@@ -156,7 +156,7 @@ public class Main {
         acc.withdraw(amount);
     }
 
-    static void transfer(String from, String to, int amount) {
+    private static void transfer(String from, String to, int amount) {
 
         Account a = accounts.get(from);
         Account b = accounts.get(to);
@@ -175,7 +175,7 @@ public class Main {
         b.deposit(amount);
     }
 
-    static void balance(String name) {
+    private static void balance(String name) {
 
         Account acc = accounts.get(name);
         if (acc == null) {
@@ -185,14 +185,14 @@ public class Main {
         System.out.println(acc.getBalance());
     }
 
-    static void accounts() {
+    private static void accounts() {
 
         for (Account a : accounts.values()) {
             System.out.println(a.getName() + " " + a.getBalance());
         }
     }
 
-    static void spend(String name, String category, int amount) {
+    private static void spend(String name, String category, int amount) {
 
         Account acc = accounts.get(name);
 
@@ -211,12 +211,12 @@ public class Main {
         );
     }
 
-    static void category(String cat) {
+    private static void category(String cat) {
 
         System.out.println(categorySpend.getOrDefault(cat, 0));
     }
 
-    static void topCategories(int k) {
+    private static void topCategories(int k) {
 
         List<Map.Entry<String, Integer>> list = new ArrayList<>(categorySpend.entrySet());
 
@@ -240,14 +240,14 @@ public class Main {
         }
     }
 
-    static void setGoal(String goal, int target) {
+    private static void setGoal(String goal, int target) {
 
         if (target <= 0) return;
         goalTarget.put(goal, target);
         goalSaved.putIfAbsent(goal, 0);
     }
 
-    static void save(String account, String goal, int amount) {
+    private static void save(String account, String goal, int amount) {
         Account acc = accounts.get(account);
 
         if (acc == null) {
@@ -270,7 +270,7 @@ public class Main {
         );
     }
 
-    static void goalStatus(String goal) {
+    private static void goalStatus(String goal) {
 
         if (!goalTarget.containsKey(goal)) {
             System.out.println("Goal not found");
@@ -287,13 +287,13 @@ public class Main {
         System.out.println("Target=" + target + " Saved=" + saved + " Progress=" + percent + "%");
     }
 
-    static void goals() {
+    private static void goals() {
         for (String g : goalTarget.keySet()) {
             System.out.println(g);
         }
     }
 
-    static void lock(String name) {
+    private static void lock(String name) {
         Account acc = accounts.get(name);
         if (acc == null) {
             System.out.println("Account not found");
@@ -301,7 +301,7 @@ public class Main {
         }
         acc.lock();
     }
-    static void unlock(String name) {
+    private static void unlock(String name) {
 
         Account acc = accounts.get(name);
         if (acc == null) {
@@ -311,7 +311,7 @@ public class Main {
         acc.unlock();
     }
 
-    static void reset() {
+    private static void reset() {
 
         accounts.clear();
         categorySpend.clear();
