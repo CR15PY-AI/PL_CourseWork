@@ -239,6 +239,27 @@ public class Main {
             );
         }
     }
+//    private static void topCategories(int k) {
+//        if (categorySpend.isEmpty()) return;
+//
+//        // Макс-куча: самые большие суммы сверху
+//        PriorityQueue<Map.Entry<String, Integer>> pq =
+//                new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
+//
+//        for (Map.Entry<String, Integer> entry : categorySpend.entrySet()) {
+//            pq.offer(entry);
+//            if (pq.size() > k) {
+//                pq.poll();  // Убираем наименьший из ТОП-k
+//            }
+//        }
+//
+//        // Выводим результат (от большего к меньшему)
+//        List<Map.Entry<String, Integer>> result = new ArrayList<>(pq);
+//        for (int i = result.size() - 1; i >= 0; i--) {
+//            System.out.println(result.get(i).getKey() + " " + result.get(i).getValue());
+//        }
+//    }
+
 
     private static void setGoal(String goal, int target) {
 
